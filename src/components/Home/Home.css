@@ -1,0 +1,14 @@
+.background-img{
+    background-image: url("programming.jpg");
+    background-size: "cover";
+    height: 100vh;
+    margin-top:auto;
+    font-size:50px;
+    background-repeat:no-repeat; 
+}
+.margin{
+    padding-top: 300px;
+}
+.margin1{
+    padding-top: 150px;
+}
