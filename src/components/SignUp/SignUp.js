@@ -2,9 +2,10 @@ import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { authContext } from '../Context/AuthProvider';
 const SignUp = () => {
-    const {register}=useContext(authContext)
+    const {register,updateUserProfile}=useContext(authContext)
     const HandleClick = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,11 +19,21 @@ const SignUp = () => {
             const user = result.user;
             console.log(user)
             form.reset();
+            HandleUser(name,photoUrl)
         })
         .catch(error=>{
             console.log(error)
         })
 
+    }
+    const HandleUser = (name,photoUrl)=>{
+        const profile = {
+            displayName: name,
+            photoUrl : photoUrl
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error =>console.log(error))
     }
     return (
         <div>
@@ -44,8 +55,11 @@ const SignUp = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required/>
+                    <div>
+                        <p className='mt-2'>Already have an account ?<Link  to='/signIn'>Login</Link></p>
+                    </div>
                 </Form.Group>
-                <Button className='mt-3' variant="primary" type="submit">
+                <Button className='' variant="primary" type="submit">
                     Register
                 </Button>
             </Form>

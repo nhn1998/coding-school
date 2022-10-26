@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { authContext } from '../Context/AuthProvider';
 const SignIn = () => {
     const {login}=useContext(authContext)
+    const [error,setError]=useState(null)
     const HandleClick= event=>{
         event.preventDefault();
         const form = event.target;
@@ -15,9 +17,11 @@ const SignIn = () => {
         .then(result=>{
             const user = result.user;
             console.log(user)
+            form.reset()
         })
         .catch(error=>{
             console.log(error)
+            setError(error.message)
         })
     }
     return (
@@ -32,10 +36,14 @@ const SignIn = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name='password' placeholder="Password" />
+                <div>
+                    <p className='mt-2 text-light'>Don't have account?<Link className='text-light' to='/signUp'>Register.</Link></p>
+                </div>
             </Form.Group>
-            <Button className='mt-3' variant="primary" type="submit">
+            <Button className='' variant="primary" type="submit">
                 Login
             </Button>
+            <p className='text-danger'><small>{error}</small></p>
         </Form>
         </div>
     );
