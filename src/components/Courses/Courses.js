@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Cards from '../Card/Cards';
 import Catagories from '../Catagories/Catagories';
 
@@ -17,11 +17,14 @@ const Courses = () => {
                             courses.map(course => <Catagories key={course.id} course={course}></Catagories>)
                         }
                     </div>
+                    <div>
+                        <button><Link>Get Premium Access</Link></button>
+                    </div>
                 </Col>
                 <Col lg={8}>
                     <h1 className='mb-5 text-center'>Courses</h1>
                     {
-                        courses.map(course => <Cards course={course}></Cards>)
+                        courses.map(course => <Cards key={course.id} course={course}></Cards>)
                     }
                 </Col>
             </Row>

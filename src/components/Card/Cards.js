@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import './Card.css'
@@ -16,7 +15,7 @@ const Cards = ({ course }) => {
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
-                            {details.slice(0,150)}...<Link>See more</Link>
+                            {details.slice(0,400)}...
                         </Card.Text>
                         <p>Take the Course for: <small className='text-warning fw-bold'>{cost}</small></p>
                     </Card.Body>

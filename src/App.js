@@ -11,6 +11,7 @@ import SignUp from './components/SignUp/SignUp';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import LanguageDetails from './components/LanguageDetails/LanguageDetails';
 
+
 function App() {
   const router = createBrowserRouter([
     {
