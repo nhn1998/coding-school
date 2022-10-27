@@ -9,6 +9,7 @@ import Blog from './components/Blog/Blog';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import LanguageDetails from './components/LanguageDetails/LanguageDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,8 +23,17 @@ function App() {
         },
         {
           path:'/courses',
-          loader:()=>fetch('https://assaingment-ten-server.vercel.app'),
+          loader:()=>fetch('https://assaingment-ten-server.vercel.app/courses'),
           element:<Courses></Courses>
+        },
+        {
+          path:'/courses/:id',
+          loader:({params})=>fetch(`https://assaingment-ten-server.vercel.app/courses/${params.id}`),
+          element:<LanguageDetails></LanguageDetails>
+        },
+        {
+          path:'/courses/:id',
+          element:<LanguageDetails></LanguageDetails>
         },
         {
           path:'/faq',
