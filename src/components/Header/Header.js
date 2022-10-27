@@ -33,14 +33,17 @@ const Header = () => {
           </Nav>
           <Nav>
             {
-              user?.uid ? <button onClick={HandleClick} className='btn btn-info me-3 text-light'>SignOut</button> :
+              user?.uid ? <div>
+              <button onClick={HandleClick} className='btn btn-info me-3 text-light'>SignOut</button>
+              <Image title={user?.displayName} roundedCircle src={user?.photoURL} style={{ height: '40px', width: '40px' }}></Image>
+              </div> :
                 <div>
                   <button className='btn btn-warning me-3'><Link className='text-dark fw-bold' style={{ textDecoration: 'none' }} to='/signIn'>SignIn</Link></button>
                   <button className='btn btn-info me-3'><Link className='text-light fw-bold' style={{ textDecoration: 'none' }} to='/signUp'>SignUp</Link></button>
                 </div>
             }
 
-            <Image title={user?.displayName} roundedCircle src={user?.photoURL} style={{ height: '40px', width: '40px' }}></Image>
+            
             <div>
               <TogglesMain></TogglesMain>
             </div>

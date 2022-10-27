@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth,provider)
     }
     const updateUserProfile = (profile)=>{
-        return updateProfile(auth,currentUser,profile)
+        return updateProfile(auth.currentUser,profile)
     }
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,currentUser=>{
