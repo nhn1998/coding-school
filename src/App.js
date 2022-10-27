@@ -22,6 +22,7 @@ function App() {
         },
         {
           path:'/courses',
+          loader:()=>fetch('https://assaingment-ten-server.vercel.app'),
           element:<Courses></Courses>
         },
         {
