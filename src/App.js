@@ -10,6 +10,8 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import LanguageDetails from './components/LanguageDetails/LanguageDetails';
+import CheckOutPage from './components/CheckOutPage/CheckOutPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -32,10 +34,7 @@ function App() {
           loader:({params})=>fetch(`https://assaingment-ten-server.vercel.app/courses/${params.id}`),
           element:<LanguageDetails></LanguageDetails>
         },
-        {
-          path:'/courses/:id',
-          element:<LanguageDetails></LanguageDetails>
-        },
+
         {
           path:'/faq',
           element:<FAQ></FAQ>
@@ -43,6 +42,11 @@ function App() {
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/courses/checkOut/:id',
+          loader:({params})=>fetch(`https://assaingment-ten-server.vercel.app/courses/${params.id}`),
+          element:<PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>
         },
         {
           path:'/signIn',

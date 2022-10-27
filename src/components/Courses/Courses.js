@@ -17,15 +17,14 @@ const Courses = () => {
                             courses.map(course => <Catagories key={course.id} course={course}></Catagories>)
                         }
                     </div>
-                    <div>
-                        <button><Link>Get Premium Access</Link></button>
-                    </div>
+                    
                 </Col>
                 <Col lg={8}>
                     <h1 className='mb-5 text-center'>Courses</h1>
                     {
                         courses.map(course => <Cards key={course.id} course={course}></Cards>)
                     }
+                    
                 </Col>
             </Row>
         </div>

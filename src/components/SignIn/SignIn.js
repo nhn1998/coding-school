@@ -4,13 +4,16 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../Context/AuthProvider';
 const SignIn = () => {
     const { login,googleLogin ,githubLogin} = useContext(authContext)
     const provider=new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const [error, setError] = useState(null)
+    const navigate= useNavigate();
+    const location=useLocation();
+    const from = location.state?.from?.pathname || '/';
     const HandleClick = event => {
         event.preventDefault();
         const form = event.target;
@@ -23,6 +26,7 @@ const SignIn = () => {
                 console.log(user)
                 form.reset()
                 setError('')
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 console.log(error)
