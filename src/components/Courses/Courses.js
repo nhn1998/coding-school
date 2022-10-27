@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import Cards from '../Card/Cards';
 import Catagories from '../Catagories/Catagories';
+import ReactToPdf from '../React to pdf/ReactToPdf';
 
 const Courses = () => {
     const courses = useLoaderData();
@@ -20,7 +21,10 @@ const Courses = () => {
                     
                 </Col>
                 <Col lg={8}>
-                    <h1 className='mb-5 text-center'>Courses</h1>
+                    <h1 className='mb-2 text-center'>Courses</h1>
+                    <div>
+                        <ReactToPdf></ReactToPdf>
+                    </div>
                     {
                         courses.map(course => <Cards key={course.id} course={course}></Cards>)
                     }
