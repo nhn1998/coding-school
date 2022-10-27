@@ -22,6 +22,7 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                setError('')
             })
             .catch(error => {
                 console.log(error)

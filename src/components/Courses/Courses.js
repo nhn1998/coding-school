@@ -19,7 +19,7 @@ const Courses = () => {
                     </div>
                 </Col>
                 <Col lg={8}>
-                    <h1 className='mb-5'>ekhane onno kichu ekta</h1>
+                    <h1 className='mb-5 text-center'>Courses</h1>
                     {
                         courses.map(course => <Cards course={course}></Cards>)
                     }
